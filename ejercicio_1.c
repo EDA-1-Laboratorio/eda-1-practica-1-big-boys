@@ -57,6 +57,12 @@ void crearMensaje() {
        
     // ... (Tu código aquí) ...
 
+     for (i=0; i<ren; i++){
+    	for (j=0; j<col; j++){
+    		escitala[i][j] = texto[k];
+    		k++;
+		}
+	}
 
     printf("El texto cifrado (leído de la tira) es:\n");
 
@@ -67,6 +73,12 @@ void crearMensaje() {
        Tip: Ahora el bucle externo debe controlar las columnas y el interno los renglones. */
 
     // ... (Tu código aquí) ...
+
+     for (j=0; j<col; j++){
+    	for (i=0; i<ren; i++){
+    		printf("%c", escitala[i][j]);
+		}
+	}
     
     printf("\n");
 }
@@ -81,7 +93,8 @@ void descifrarMensaje() {
     scanf("%d", &col);
 
     char escitala[ren][col];
-    char texto[ren * col];
+    char texto[ren * col + 1]; //Le agrregamos el +1 porque comenzaba a leer un puesto después del que tenía que ser, 
+   //ya que cuando tenemos "%s", al final por default se agrega un \0, siendo ahora (en lugar de ren*col) (ren*col)+1 caracteres
 
     printf("Escriba el texto cifrado: ");
     scanf("%s", texto);
@@ -96,6 +109,13 @@ void descifrarMensaje() {
 
     // ... (Tu código aquí) ...
 
+      for (j=0; j<col; j++){
+    	for (i=0; i<ren; i++){
+    		escitala[i][j] = texto[k];
+    		k++;
+		}
+	}
+
 
     printf("El texto descifrado es:\n");
 
@@ -105,6 +125,12 @@ void descifrarMensaje() {
     /* TODO: Escribe aquí los bucles para imprimir el mensaje original. */
 
     // ... (Tu código aquí) ...
+
+    for (i=0; i<ren; i++){
+    	for (j=0; j<col; j++){
+    		printf("%c", escitala[i][j]);
+		}
+	}
 
     printf("\n");
 }
