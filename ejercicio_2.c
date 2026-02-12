@@ -12,21 +12,39 @@ void generarEspiral(int n, int matriz[MAX][MAX]) {
         // 1. Recorrer de izquierda a derecha (fila superior)
         // TODO: Escribir el bucle for que llena desde 'left' hasta 'right'
         // Tip: Al terminar, incrementar 'top'
+
+        for (int i=left; i<=right; i++) {
+        	matriz[top][i] = valor++;
+		}
+		top++;
         
         // 2. Recorrer de arriba a abajo (columna derecha)
         // TODO: Escribir el bucle for que llena desde 'top' hasta 'bottom'
         // Tip: Al terminar, decrementar 'right'
 
+        for (int i=top; i<=bottom; i++){
+        	matriz[i][right] = valor++;
+		}
+		right--;
+
         // 3. Recorrer de derecha a izquierda (fila inferior)
         if (top <= bottom) {
             // TODO: Escribir el bucle for
             // Tip: Al terminar, decrementar 'bottom'
+            for (int i=right; i>=left; i++){
+            	matriz[bottom][i] = valor ++;
+			}
+			bottom--;
         }
 
         // 4. Recorrer de abajo a arriba (columna izquierda)
         if (left <= right) {
             // TODO: Escribir el bucle for
             // Tip: Al terminar, incrementar 'left'
+            for (int i=bottom; i>=top; i++){
+            	matriz[i][left] = valor++;
+			}
+			left++;
         }
     }
 }
@@ -60,3 +78,6 @@ int main() {
 }
 
 // PREGUNTA: ¿Qué sucede si se omite la verificación if (top <= bottom) -linea 21- dentro del bucle?
+// RESPUESTA: No ocurre nada porque antes tenemos un while que detiene la cuenta en n*n, esto significa que, al ser una matriz n*n,
+// se detendrá la cuenta al llenarse los espacios; sin embargo, este if es para evitar que se recorra a una siguiente fila cuando
+// los límites del espiral se cruzan.
