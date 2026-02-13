@@ -138,3 +138,9 @@ void descifrarMensaje() {
 // PREGUNTA: En la implementación se una matriz auxiliar de dimensiones ren × col para realizar la transposición. 
 // Si tuvieras una restricción de memoria severa y no pudieras crear esa matriz bidimensional, 
 // ¿qué fórmula matemática utilizarías para imprimir el carácter correcto directamente desde el arreglo original texto[] ?
+// RESPUESTA: No guardaríamos los datos en escitala, sino que trabajaríamos directamente con el arreglo texto[]. Como el 
+// mensaje original se escribe por filas y el cifrado se lee por columnas, lo que estamos haciendo es cambiar la forma en
+// que recorremos las posiciones. Entonces, para saber qué letra imprimir, podemos calcular su posición con la fórmula: 
+// índice = j * ren + i
+// Con esto obtenemos el carácter correcto directamente del arreglo lineal, sin necesidad de una matriz. Basicamente 
+// reorganizamos los índices en lugar de mover los datos
