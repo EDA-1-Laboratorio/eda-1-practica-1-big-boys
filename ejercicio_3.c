@@ -102,3 +102,5 @@ int main() {
 }
 
 // PREGUNTA: ¿Por qué es obligatoria la matriz siguiente_mundo? ¿Qué pasaría si actualizamos directamente sobre mundo?
+// RESPUESTA: Se sobreescribirían los valores sobre los que ya estaban y los que "mueren" se quedarían ahí puesto que 
+// no estamos borrando la matriz anterior, es que escribir sobre algo ya escrito.
