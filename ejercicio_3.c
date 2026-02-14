@@ -51,6 +51,23 @@ int contarVecinos(int f, int c) {
     //       ... si no es la propia celda (f,c) y está viva, vecinos++ ...
     //    }
     // }
+
+    for (int i = f - 1; i <= f + 1; i++) {
+        for (int j = c - 1; j <= c + 1; j++) {
+
+            // Verificar limites
+            if (i < 0 || i >= FILAS || j < 0 || j >= COLS) 
+                continue;
+
+            // No contar la celda misma
+            if (i == f && j == c) 
+                continue;
+
+            // Contar si esta viva
+            if (mundo[i][j] == 1) 
+                vecinos++;
+        }
+    }
     
     return vecinos;
 }
@@ -76,6 +93,10 @@ void siguienteGeneracion() {
                 // REGLA 4: Reproducción (exactamente 3 vecinos) -> Nace
                 
                 // TODO: Completar la lógica para células muertas
+                if (vecinos == 3)
+                    siguiente_mundo[i][j] = 1;
+                else
+                    siguiente_mundo[i][j] = 0;
             }
         }
     }
@@ -101,4 +122,7 @@ int main() {
     return 0;
 }
 
+
 // PREGUNTA: ¿Por qué es obligatoria la matriz siguiente_mundo? ¿Qué pasaría si actualizamos directamente sobre mundo?
+// RESPUESTA: Se sobreescribirían los valores sobre los que ya estaban y los que "mueren" se quedarían ahí puesto que 
+// no estamos borrando la matriz anterior, es que escribir sobre algo ya escrito.
